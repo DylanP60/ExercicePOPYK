@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{parent()}} - Liste des compétences
+{% endblock %}
+
+{% block body %}
+    <h2> Liste des compétences</h2>
+    <ul>
+        {% for comp in lesComp %}
+            <li>
+                {% set id_competence='/competence/edit/' ~ comp.id %}
+                <a href={{id_competence}}>{{comp.name}}</a>
+
+                {# Déclaration de la variable id_suppress pour la passer d'URL #}
+                {% set id_suppress='/competence/delete/' ~ comp.id %}
+
+                <a href={{id_suppress}} class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>Supprimer</a>
+            </li>
+        {% else %}
+            <li>Pas de compétences</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

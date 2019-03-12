@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{parent()}} - Ajout d'une offre
+{% endblock %}
+
+{% block body %}
+    <h2>Ajout d'une offre</h2>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <a href="list">Retour aux offres</a>
+{% endblock %}

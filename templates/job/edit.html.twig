@@ -1,0 +1,11 @@
+{% block title %}
+    {{parent()}} - Modification d'un job
+{% endblock %}
+
+{% block body %}
+    <h2>Modifier le job {{editJob.name}}</h2>
+    {# {'method' : 'POST'}, #}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

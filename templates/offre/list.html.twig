@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{parent()}} - Liste des offres
+{% endblock %}
+
+{% block body %}
+    <h2> Liste des offres</h2>
+    <ul>
+        {% for offre in lesOffre %}
+            <li>
+                {% set id_offre='/offre/edit/' ~ offre.id %}
+                <a href={{id_offre}}>{{offre.titre}}</a>
+
+                {# Déclaration de la variable id_suppress pour la passer d'URL #}
+                {% set id_suppress='/offre/delete/' ~ offre.id %}
+
+                <a href={{id_suppress}} class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>Supprimer</a>
+            </li>
+        {% else %}
+            <li>Pas d'offre</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% block title %}
+    {{parent()}} - Modification d'une candidature
+{% endblock %}
+
+{% block body %}
+    <h2>Modifier la candidature de {{editCandidature.name}} {{editCandidature.firstName}}</h2>
+    {# {'method' : 'POST'}, #}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

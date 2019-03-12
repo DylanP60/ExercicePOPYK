@@ -1,0 +1,11 @@
+{% block title %}
+    {{parent()}} - Modification d'une offre
+{% endblock %}
+
+{% block body %}
+    <h2>Modifier l'offre {{editOffre.titre}}</h2>
+    {# {'method' : 'POST'}, #}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

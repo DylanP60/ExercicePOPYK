@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{parent()}} - Liste des candidatures
+{% endblock %}
+
+{% block body %}
+    <h2> Liste des candidatures</h2>
+    <ul>
+        {% for cand in lesCandi %}
+            <li>
+                {% set id_candidature='/candidature/edit/' ~ cand.id %}
+                <a href={{id_candidature}}>{{cand.name}} {{cand.firstName}}</a>
+
+                {# Déclaration de la variable id_suppress pour la passer d'URL #}
+                {% set id_suppress='/candidature/delete/' ~ cand.id %}
+
+                <a href={{id_suppress}} class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>Supprimer</a>
+            </li>
+        {% else %}
+            <li>Pas de candidature</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
